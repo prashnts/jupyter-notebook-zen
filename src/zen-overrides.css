@@ -416,7 +416,7 @@ body {
 body>#header {
   /* Initially hidden to prevent FLOUC */
   display: none;
-  background-color: #e0dfdfba;
+  background-color: transparent;
   /* Display over codemirror */
   position: fixed;
   width: 100%;
@@ -1559,7 +1559,7 @@ div#notebook {
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  content: 'âŒ˜';
+  content: '⌘';
 }
 
 .notification_widget {
