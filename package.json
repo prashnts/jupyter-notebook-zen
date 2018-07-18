@@ -1,0 +1,13 @@
+{
+  "name": "jupyter-notebook-zen",
+  "version": "1.0.0",
+  "description": "Better UI for Jupyter Notebooks",
+  "main": "index.js",
+  "repository": "git@github.com:prashnts/jupyter-notebook-zen.git",
+  "author": "Prashant Sinha <prashant+git@noop.pw>",
+  "license": "MIT",
+  "dependencies": {
+    "brunch": "^2.10.12",
+    "sass-brunch": "^2.10.4"
+  }
+}
