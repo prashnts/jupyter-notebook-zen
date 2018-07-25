@@ -675,7 +675,14 @@ div.cell.selected.jupyter-soft-selected:before {
   content: '';
   background: #4DD0E1;
   z-index: -1;
-  border-radius: 5px;
+  border-radius: 2px;
+}
+
+div.cell.selected.running:before,
+div.cell.running:before,
+div.cell.selected.jupyter-soft-selected:before {
+  background: #F44336;
+  width: 20px;
 }
 
 @media print {
@@ -708,7 +715,7 @@ div.cell.selected.jupyter-soft-selected:before {
 
 .prompt {
   /* This needs to be wide enough for 3 digit prompt numbers: In[100]: */
-  /* min-width: 14ex; */
+  min-width: 0;
   /* This padding is tuned to match the padding on the CodeMirror editor. */
   padding: 0;
   margin: 0px;
@@ -818,7 +825,11 @@ div.input_prompt {
   /* Changed from white to allow our bg to show through */
   word-wrap: break-word;
   line-break: normal;
-  margin-left: -38px;
+  margin-left: -52px;
+}
+
+.CodeMirror-gutters {
+  background: transparent;
 }
 
 .CodeMirror-lines {
@@ -961,6 +972,7 @@ div.out_prompt_overlay {
   padding: 5px;
   position: absolute;
   border-radius: 2px;
+  display: none;
 }
 
 div.output_prompt {
@@ -992,7 +1004,7 @@ div.output_area {
 
 div.output_area svg {
   width: 100% !important;
-  height: auto;
+  height: auto !important;
 }
 
 div.output_area pre {
@@ -1575,7 +1587,7 @@ div#notebook {
 
 span.save_widget {
   /* height: 30px; */
-  /* margin-top: 4px; */
+  margin-top: 0;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -1741,11 +1753,6 @@ span.autosave_status {
   top: 0;
 }
 
-.cell.running:before {
-  background: #F44336;
-  width: 20px;
-}
-
 .output.output_scroll:before {
   content: '';
   position: absolute;
@@ -1754,4 +1761,79 @@ span.autosave_status {
   height: 7px;
   border-radius: 0 0 4px 4px;
   background: #81C784;
+}
+
+
+.MathJax_Display {
+  font-size: 1rem;
+}
+
+.output_area .run_this_cell {
+  display: none;
+}
+
+.output_subarea.output_svg {
+  max-width: 100%;
+  overflow: hidden;
+}
+.output_svg div {
+  max-width: 100%;
+  height: auto !important;
+}
+
+
+/* Extensions Overrides */
+.run_this_cell {
+  color: #455A64;
+  left: -60px;
+  z-index: 1000;
+  background: #ffffff;
+  position: absolute;
+  height: 1.5em;
+  width: 2em;
+  padding: 0.25em 0.5em;
+  text-align: center;
+  border-radius: 2px;
+  border: 1px solid #ffffff;
+  font-size: 0.8em;
+  box-shadow: 1px 1px 8px #607d8b80;
+}
+
+div#nbextension-scratchpad {
+  position: fixed;
+  right: 0;
+  left: 0;
+  bottom: -2px;
+  background-color: transparent;
+  border: 0;
+  z-index: 105;
+  max-height: 50vh;
+  margin: auto;
+  box-shadow: 0px 0px 8px 4px #14151538;
+}
+
+#nbextension-scratchpad .scratchpad-btn {
+  float: right;
+  margin-right: 24px;
+  opacity: 1;
+  z-index: 106;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  padding: 4px;
+  font-size: 16px;
+  width: 24px;
+  height: 24px;
+}
+
+#nbextension-scratchpad .CodeMirror {
+  margin-left: -35px;
+}
+
+#nbextension-scratchpad .cell-wrapper {
+  background: #d2dadeab;
+  backdrop-filter: blur(4px);
+  border-radius: 0;
+  border: 1px solid #90A4AE;
+  padding: 0 10px;
 }
